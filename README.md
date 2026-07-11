@@ -1,26 +1,37 @@
 # Qwen2.5-0.5B 知识蒸馏工程
 基于通义千问Qwen2.5-0.5B底座完成小规模知识蒸馏，针对《卡拉马佐夫兄弟》问答场景构建专用轻量模型。
 
-## 项目简介
+## 一、项目简介
 1. 任务：通用大模型轻量化蒸馏，构建文学问答专用小模型
 2. 底座：Qwen2.5-0.5B
 3. 数据集：卡拉马佐夫兄弟问答对话语料
 4. 技术栈：Python 3.10 + PyTorch + Transformers + LoRA微调 + 知识蒸馏
 5. 说明：436MB权重文件 `model.safetensors` 因GitHub单文件100MB限制，**仓库不存储完整权重**，仅保留数据集、配置、训练脚本；权重可自行合并或从外部存储获取。
-## Qwen2.5-0.5B获取
-可以通过[huggingface](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct)获取
-@misc{qwen2.5,
-    title = {Qwen2.5: A Party of Foundation Models},
-    url = {https://qwenlm.github.io/blog/qwen2.5/},
-    author = {Qwen Team},
-    month = {September},
-    year = {2024}
-}
 
-@article{qwen2,
-      title={Qwen2 Technical Report}, 
-      author={An Yang and Baosong Yang and Binyuan Hui and Bo Zheng and Bowen Yu and Chang Zhou and Chengpeng Li and Chengyuan Li and Dayiheng Liu and Fei Huang and Guanting Dong and Haoran Wei and Huan Lin and Jialong Tang and Jialin Wang and Jian Yang and Jianhong Tu and Jianwei Zhang and Jianxin Ma and Jin Xu and Jingren Zhou and Jinze Bai and Jinzheng He and Junyang Lin and Kai Dang and Keming Lu and Keqin Chen and Kexin Yang and Mei Li and Mingfeng Xue and Na Ni and Pei Zhang and Peng Wang and Ru Peng and Rui Men and Ruize Gao and Runji Lin and Shijie Wang and Shuai Bai and Sinan Tan and Tianhang Zhu and Tianhao Li and Tianyu Liu and Wenbin Ge and Xiaodong Deng and Xiaohuan Zhou and Xingzhang Ren and Xinyu Zhang and Xipin Wei and Xuancheng Ren and Yang Fan and Yang Yao and Yichang Zhang and Yu Wan and Yunfei Chu and Yuqiong Liu and Zeyu Cui and Zhenru Zhang and Zhihao Fan},
-      journal={arXiv preprint arXiv:2407.10671},
-      year={2024}
-}
+## 二、训练JSON数据集制作
+使用阿里云大模型免费平台 Qwen-Plus 生成训练对话数据集。
 
+## 三、原始底座模型获取
+Qwen2.5-0.5B-Instruct 基座下载地址：
+[https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct)
+
+## 四、训练环境
+基于 Google Colab 云端环境完成蒸馏训练。
+
+## 五、蒸馏训练结果指标
+5.1 分轮训练数据表格
+| Epoch | Training Loss | Validation Loss | Entropy  | Num Tokens | Mean Token Accuracy |
+|-------|---------------|-----------------|----------|------------|---------------------|
+| 1     | 1.726950      | 1.731688        | 1.750159 | 274285     | 0.697347            |
+| 2     | 1.840631      | 1.695942        | 1.676296 | 548570     | 0.701784            |
+| 3     | 1.694106      | 1.689759        | 1.649879 | 822855     | 0.702855            |
+## 六、问答测试样例
+### 示例1
+👤 伊万的虚无思想核心是什么
+🤖 伊万的虚无思想的核心是 “人本主义”，即认为人类的本质在于人的自由意志和尊严。他相信，每个人都有权利追求自己的幸福、实现自己的价值，而这种幸福并不来自于物质享受或外在的成功。他的思想强调的是个人的价值观和生活态度，而不是社会或政治制度。伊万的虚无思想是一个具有深远影响的思想体系，他在批判传统道德观念的同时，也试图找到一种新的答案来回答人类存在的问题
+### 示例2
+👤 佐西马长老核心主张是什么
+🤖 佐西马长老的主张是 “和解”、“和平” 和 “民主”，他认为，人类社会应当以和解的方式解决冲突，通过和平协商来实现。他强调，必须建立一个强有力的政府机构，确保公民对政治决策有充分的参与权。他还倡导建立多元、平衡的政治体制，使不同种族、宗教信仰的人们能够共享国家权力。此外，他还提出了 “民主” 的概念，认为只有通过民主制度，才能真正实现人的自由与平等。佐西马长老的核心主张是通过和平、民主的方式来解决冲突，维护人类社会的稳定和发展。
+### 示例3
+👤 阿廖沙为什么没有走上和兄长一样堕落的道路
+🤖 阿廖沙没有走上和兄长一样堕落的道路，是因为他拥有自己的信念、勇气和智慧。阿廖沙的父亲是贵族，但阿廖沙从未感到自卑或屈从，而是坚信自己可以成为一个有力量的男子汉。在阿廖沙的成长过程中，他学会了独立思考、判断事物的能力，并且对人类社会有了自己的理解和理解。他并不像他的兄长那样盲目地跟随他人，而是选择了自己的道路，最终成为了那个时代的英雄之一。
