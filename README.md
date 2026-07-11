@@ -15,7 +15,14 @@ Qwen2.5-0.5B-Instruct 基座下载地址：
 
 ## 四、训练环境
 基于 Google Colab 云端环境完成蒸馏训练。
-
+torch: 2.11.0+cu128
+transformers: 5.12.1
+peft: 0.19.1
+bitsandbytes: 0.46.1
+accelerate: 1.14.0
+safetensors: 0.8.0
+CUDA: 12.8
+库详情见requirements.txt
 ## 五、蒸馏训练结果指标
 5.1 分轮训练数据表格
 | Epoch | Training Loss | Validation Loss | Entropy  | Num Tokens | Mean Token Accuracy |
