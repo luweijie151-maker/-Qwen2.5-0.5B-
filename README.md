@@ -7,20 +7,20 @@
 3. 数据集：卡拉马佐夫兄弟问答对话语料
 4. 技术栈：Python 3.10 + PyTorch + Transformers + LoRA微调 + 知识蒸馏
 5. 说明：436MB权重文件 `model.safetensors` 因GitHub单文件100MB限制，**仓库不存储完整权重**，仅保留数据集、配置、训练脚本；权重可自行合并或从外部存储获取。
-6. ## 完整模型权重获取（外部存储一键下载）
-本仓库仅存放模型配置、分词器与数据集，不含436MB权重文件，完整权重一键下载：
+## Qwen2.5-0.5B获取
+可以通过[huggingface](https://huggingface.co/Qwen/Qwen2.5-0.5B-Instruct)获取
+@misc{qwen2.5,
+    title = {Qwen2.5: A Party of Foundation Models},
+    url = {https://qwenlm.github.io/blog/qwen2.5/},
+    author = {Qwen Team},
+    month = {September},
+    year = {2024}
+}
 
-1. HuggingFace 主仓库：
-[https://huggingface.co/luweijie151/Qwen2.5-0.5B-Karamazov-Distill](https://huggingface.co/luweijie151/Qwen2.5-0.5B-Karamazov-Distill)
-
-2. ModelScope 国内高速镜像：
-[https://modelscope.cn/models/luweijie151/Qwen2.5-0.5B-Karamazov-Distill](https://modelscope.cn/models/luweijie151/Qwen2.5-0.5B-Karamazov-Distill)
-
-3. 百度网盘备用：
-[https://pan.baidu.com/s/xxxxxxx](https://pan.baidu.com/s/xxxxxxx)
-提取码：abcd
-
-下载完成后将 `model.safetensors` 放到路径 `融合文件/qwen0.5b_merged_full/` 下即可正常加载模型。
-
-
+@article{qwen2,
+      title={Qwen2 Technical Report}, 
+      author={An Yang and Baosong Yang and Binyuan Hui and Bo Zheng and Bowen Yu and Chang Zhou and Chengpeng Li and Chengyuan Li and Dayiheng Liu and Fei Huang and Guanting Dong and Haoran Wei and Huan Lin and Jialong Tang and Jialin Wang and Jian Yang and Jianhong Tu and Jianwei Zhang and Jianxin Ma and Jin Xu and Jingren Zhou and Jinze Bai and Jinzheng He and Junyang Lin and Kai Dang and Keming Lu and Keqin Chen and Kexin Yang and Mei Li and Mingfeng Xue and Na Ni and Pei Zhang and Peng Wang and Ru Peng and Rui Men and Ruize Gao and Runji Lin and Shijie Wang and Shuai Bai and Sinan Tan and Tianhang Zhu and Tianhao Li and Tianyu Liu and Wenbin Ge and Xiaodong Deng and Xiaohuan Zhou and Xingzhang Ren and Xinyu Zhang and Xipin Wei and Xuancheng Ren and Yang Fan and Yang Yao and Yichang Zhang and Yu Wan and Yunfei Chu and Yuqiong Liu and Zeyu Cui and Zhenru Zhang and Zhihao Fan},
+      journal={arXiv preprint arXiv:2407.10671},
+      year={2024}
+}
 
